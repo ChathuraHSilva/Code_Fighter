@@ -91,7 +91,7 @@ $(document).on("click", ".btnRemove", function(event){
 	{
 		url : "BuyerAPI",
 		type : "DELETE",
-		data : "Buyer ID=" + $(this).data("buyerID"),
+		data : "BuyerID=" + $(this).data("buyerID"),
 		dataType : "text",
 		complete : function(response, status)
 		{

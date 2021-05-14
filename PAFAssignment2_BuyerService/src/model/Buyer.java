@@ -179,7 +179,6 @@ public class Buyer {
    return output; 
    } 
    
-   
    public String deleteBuyer(String BuyerID) 
    { 
         String output = ""; 
@@ -195,21 +194,19 @@ public class Buyer {
        String query = "delete from Buyer where `Buyer ID`=?"; 
        PreparedStatement preparedStmt = con.prepareStatement(query); 
        
-       
-      // System.out.println("sit :"+buyerID);
-       int buyerID=Integer.parseInt(BuyerID);
+      
     // binding values
-       preparedStmt.setInt(1,buyerID); 
+       preparedStmt.setInt(1, Integer.parseInt(BuyerID));
        
       
       // execute the statement
        preparedStmt.execute(); 
-       
+       con.close(); 
        
 
 		  //create JSON Object
 	   String newBuyer = readBuyer();
-       con.close(); 
+      
        output = "{\"status\":\"success\", \"data\": \"" + newBuyer + "\"}";
         } 
        catch (Exception e) 
